@@ -1,0 +1,365 @@
+:root {
+  --bleu: #0070C0;
+  --bleu-fonce: #1F3864;
+  --gris: #5b6470;
+  --bord: #c9d1de;
+  --fond: #f4f6fa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--fond);
+  color: #1d2433;
+}
+
+/* ---------- Écran ---------- */
+.app {
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) minmax(0, 1.1fr);
+  gap: 20px;
+  padding: 20px;
+  align-items: start;
+}
+
+.formulaire {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, .06);
+}
+
+.formulaire h2 {
+  font-size: 1rem;
+  color: var(--bleu-fonce);
+  margin: 18px 0 8px;
+  border-bottom: 1px solid #e3e7ef;
+  padding-bottom: 4px;
+}
+
+.formulaire h2:first-child {
+  margin-top: 0;
+}
+
+.grille {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 12px;
+}
+
+.plein {
+  grid-column: 1 / -1;
+}
+
+label {
+  display: block;
+  font-size: .82rem;
+  font-weight: 600;
+  margin-bottom: 3px;
+  color: #323b4d;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--bord);
+  border-radius: 7px;
+  font: inherit;
+  font-size: .92rem;
+  background: #fff;
+}
+
+textarea {
+  min-height: 60px;
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  outline: 2px solid var(--bleu);
+  border-color: transparent;
+}
+
+.ligne-prest {
+  display: grid;
+  grid-template-columns: 1fr 70px 110px 34px;
+  gap: 8px;
+  align-items: start;
+  padding: 10px;
+  border: 1px solid #e3e7ef;
+  border-radius: 9px;
+  margin-bottom: 8px;
+  background: #fafbfd;
+}
+
+.ligne-prest .detail {
+  grid-column: 1 / 4;
+}
+
+.ligne-prest .suppr {
+  background: #fef3f2;
+  color: #b42318;
+  border: 1px solid #fecdca;
+  border-radius: 7px;
+  cursor: pointer;
+  height: 36px;
+}
+
+.entete-prest {
+  display: grid;
+  grid-template-columns: 1fr 70px 110px 34px;
+  gap: 8px;
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--gris);
+  margin-bottom: 4px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+button {
+  font: inherit;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  border: 1px solid var(--bleu);
+}
+
+.btn-principal {
+  background: var(--bleu);
+  color: #fff;
+  flex: 1;
+}
+
+.btn-principal:hover {
+  background: var(--bleu-fonce);
+}
+
+.btn-secondaire {
+  background: #fff;
+  color: var(--bleu);
+}
+
+.btn-secondaire:hover {
+  background: #eef5fc;
+}
+
+.msg {
+  display: none;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: #fef3f2;
+  color: #b42318;
+  border: 1px solid #fecdca;
+  font-size: .9rem;
+}
+
+.msg.visible {
+  display: block;
+}
+
+.apercu-wrap {
+  position: sticky;
+  top: 20px;
+}
+
+.apercu-wrap p.info {
+  color: var(--gris);
+  font-size: .85rem;
+  margin: 0 0 8px;
+}
+
+/* ---------- Devis (aperçu + impression) ---------- */
+#devis {
+  background: #fff;
+  width: 100%;
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 15mm 18mm;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, .08);
+  font-family: "Times New Roman", Times, serif;
+  font-size: 11pt;
+  color: #111;
+  line-height: 1.35;
+}
+
+#devis .logo {
+  text-align: center;
+}
+
+#devis .logo img {
+  width: 55mm;
+}
+
+#devis h1 {
+  text-align: center;
+  color: var(--bleu-fonce);
+  font-size: 14pt;
+  margin: 6mm 0 5mm;
+}
+
+#devis .meta p {
+  margin: 0 0 1mm;
+}
+
+#devis table.parties {
+  width: 100%;
+  margin-top: 5mm;
+  border-collapse: collapse;
+}
+
+#devis table.parties td {
+  vertical-align: top;
+  width: 50%;
+  padding: 0;
+}
+
+#devis .objet {
+  font-size: 12pt;
+  margin: 8mm 0 6mm;
+}
+
+#devis table.lignes {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#devis table.lignes th,
+#devis table.lignes td {
+  border: 0.6pt solid #000;
+  padding: 5px 7px;
+  vertical-align: top;
+}
+
+#devis table.lignes thead th {
+  background: #000;
+  color: #fff;
+  font-size: 10pt;
+  text-align: left;
+}
+
+#devis .num {
+  text-align: right;
+  white-space: nowrap;
+}
+
+#devis table.lignes th.num,
+#devis table.lignes td.num {
+  width: 14%;
+}
+
+#devis table.lignes tr {
+  page-break-inside: avoid;
+}
+
+#devis table.lignes tbody tr:nth-child(even) td {
+  background: #f5f5f5;
+}
+
+#devis td.desc ul {
+  margin: 2px 0 0 14px;
+  padding: 0;
+}
+
+#devis td.desc ul li {
+  margin: 0 0 1px;
+  white-space: pre-line;
+}
+
+#devis .total-valeur {
+  color: #0070C0;
+  font-weight: bold;
+  font-size: 12pt;
+}
+
+#devis .remarques {
+  margin-top: 6mm;
+  white-space: pre-line;
+}
+
+#devis .conditions {
+  margin-top: 8mm;
+  font-size: 9pt;
+  page-break-inside: avoid;
+}
+
+#devis .conditions h2 {
+  font-size: 9.5pt;
+  margin: 0 0 2mm;
+}
+
+#devis .conditions li {
+  list-style: none;
+  margin: 0 0 1mm;
+}
+
+#devis .signatures {
+  margin-top: 12mm;
+  width: 100%;
+  page-break-inside: avoid;
+}
+
+#devis .signatures td {
+  width: 50%;
+  padding-left: 4mm;
+}
+
+#devis .signatures .ligne {
+  margin-top: 12mm;
+}
+
+/* ---------- Impression : seul le devis est imprimé ---------- */
+@page {
+  size: A4;
+  margin: 12mm 15mm;
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .app>.formulaire,
+  .apercu-wrap p.info {
+    display: none !important;
+  }
+
+  .app {
+    display: block;
+    padding: 0;
+  }
+
+  .apercu-wrap {
+    position: static;
+  }
+
+  #devis {
+    box-shadow: none;
+    max-width: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  .apercu-wrap {
+    position: static;
+  }
+}

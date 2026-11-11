@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Devis</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <div class="app">
+
+    <!-- ===================== FORMULAIRE ===================== -->
+    <section class="formulaire" id="formulaire">
+
+      <h2>Devis</h2>
+      <div class="grille">
+        <div><label for="numero">Numéro de devis</label><input id="numero"></div>
+        <div><label for="date">Date</label><input type="date" id="date"></div>
+        <div><label for="validite">Validité (jours)</label><input type="number" id="validite" min="1" value="30"></div>
+        <div><label for="acompte">Acompte (%)</label><input type="number" id="acompte" min="0" max="100" value="50">
+        </div>
+      </div>
+
+      <h2>Client</h2>
+      <div class="grille">
+        <div class="plein"><label for="client-memoire">Clients mémorisés</label><select id="client-memoire"></select>
+        </div>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn-secondaire" id="enregistrer-client">Mémoriser ce client</button>
+        <button type="button" class="btn-secondaire" id="oublier-client">Oublier le client sélectionné</button>
+      </div>
+      <div class="grille" style="margin-top:10px">
+        <div class="plein"><label for="client-nom">Nom du client *</label><input id="client-nom"></div>
+        <div><label for="client-contact">Personne de contact</label><input id="client-contact"></div>
+        <div><label for="client-tel">Téléphone</label><input id="client-tel"></div>
+        <div><label for="client-email">Email</label><input type="email" id="client-email"></div>
+        <div><label for="client-ville">Ville / Pays *</label><input id="client-ville"></div>
+        <div class="plein"><label for="projet">Projet</label><textarea id="projet"></textarea></div>
+        <div class="plein"><label for="objet">Objet</label><input id="objet"
+            placeholder="Laissez vide pour un objet automatique"></div>
+      </div>
+
+      <h2>Prestations</h2>
+      <div class="grille">
+        <div class="plein"><label for="service-select">Ajouter un service du catalogue</label>
+          <div style="display:flex; gap:8px">
+            <select id="service-select" style="flex:1"></select>
+            <button type="button" class="btn-secondaire" id="ajouter-service">Ajouter</button>
+          </div>
+        </div>
+      </div>
+      <div class="entete-prest"><span>Description (1re ligne = titre, lignes suivantes =
+          détails)</span><span>Qté</span><span>Prix unit. (USD)</span><span></span></div>
+      <div id="lignes"></div>
+      <div class="actions">
+        <button type="button" class="btn-secondaire" id="ajouter-ligne">+ Ajouter une prestation</button>
+      </div>
+
+      <h2>Remarques et conditions</h2>
+      <div class="grille">
+        <div class="plein"><label for="remarques">Remarques (facultatif)</label><textarea id="remarques"></textarea>
+        </div>
+        <div class="plein"><label for="delai">Délai d'exécution</label><input id="delai"></div>
+        <div class="plein"><label for="modes">Modes de paiement</label><input id="modes"></div>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn-principal" id="telecharger">Télécharger en PDF</button>
+        <button type="button" class="btn-secondaire" id="nouveau">Nouveau devis</button>
+      </div>
+      <div class="msg" id="message"></div>
+    </section>
+
+    <!-- ===================== APERÇU / DEVIS ===================== -->
+    <section class="apercu-wrap">
+      <p class="info">Aperçu en direct. « Télécharger en PDF » ouvre la boîte d'impression : choisissez « Enregistrer au
+        format PDF ».</p>
+      <article id="devis"></article>
+    </section>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
